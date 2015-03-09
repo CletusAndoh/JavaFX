@@ -40,7 +40,7 @@ public class Login extends Application {
         grid.setPadding(new Insets(25,25,25,25));
         
         Text scenetitle = new Text("Welcome");
-        scenetitle.setFont(Font.font("Comic Sans", FontWeight.NORMAL, 20));
+        scenetitle.setId("welcome-text");
         grid.add(scenetitle, 0, 0, 2, 1);
         
         Label userName = new Label("Username:");
@@ -61,9 +61,14 @@ public class Login extends Application {
         hbBtn.getChildren().add(btn);
         grid.add(hbBtn, 1, 4);
         
+        final Text actiontarget = new Text();
+        grid.add(actiontarget, 1, 6);
+        actiontarget.setId("actiontarget");
+        
         
        Scene scene = new Scene(grid, 300, 275);
        primaryStage.setScene(scene);
+       scene.getStylesheets().add(Login.class.getResource("Login.css").toExternalForm());
         primaryStage.show();
     }
     
